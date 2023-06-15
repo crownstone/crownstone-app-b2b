@@ -75,7 +75,7 @@ export class IconCircle extends Component<{icon, size?, iconSize?, color?, borde
         borderRadius:size * 0.5,
         backgroundColor: this.props.backgroundColor || colors.white.hex,
       }, styles.centered]}>
-        <Icon name={this.props.icon} size={this.props.iconSize || size*0.6} color={this.props.color || colors.menuBackground.hex} />
+        <Icon name={this.props.icon} size={this.props.iconSize || size*0.45} color={this.props.color || colors.menuBackground.hex} />
       </View>
     )
   }

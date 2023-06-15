@@ -18,6 +18,10 @@ import {SettingsBackground} from "../components/SettingsBackground";
 import { SettingsScrollView } from "../components/SettingsScrollView";
 
 
+var miscellaneousList = [];
+for (let i = 0; i < 256; i++) {
+  miscellaneousList.push("rn-" + i)
+};
 
 
 let listOfIcons = {
@@ -247,63 +251,7 @@ let listOfIcons = {
     'c1-weight',
     'c1-projector',
   ],
-  miscellaneous: [
-    "rn-1",
-    "rn-2",
-    "rn-3",
-    "rn-4",
-    "rn-5",
-    "rn-6",
-    "rn-7",
-    "rn-8",
-    "rn-9",
-    "rn-10",
-    "rn-11",
-    "rn-12",
-    "rn-13",
-    "rn-14",
-    "rn-15",
-    "rn-16",
-    "rn-17",
-    "rn-18",
-    "rn-19",
-    "rn-20",
-    "rn-21",
-    "rn-22",
-    "rn-23",
-    "rn-24",
-    "rn-25",
-    "rn-26",
-    "rn-27",
-    "rn-28",
-    "rn-29",
-    "rn-30",
-    "rn-31",
-    "rn-32",
-    "rn-33",
-    "rn-34",
-    "rn-35",
-    "rn-36",
-    "rn-37",
-    "rn-38",
-    "rn-39",
-    "rn-40",
-    "rn-41",
-    "rn-42",
-    "rn-43",
-    "rn-44",
-    "rn-45",
-    "rn-46",
-    "rn-47",
-    "rn-48",
-    "rn-49",
-    "rn-50",
-    "rn-51",
-    "rn-52",
-    "rn-53",
-    "rn-54",
-    "rn-55"
-  ],
+  miscellaneous: miscellaneousList,
   hallway: [
     "fiHS-door-2",
     "fiHS-door-3",
