@@ -3740,6 +3740,7 @@ export default {
     Nature___Outside:                       function() { return "Natuur / Buiten"; },
     Miscellaneous:                          function() { return "Overig"; },
     Pick_an_Icon:                           function() { return "Kies een Icoon"; },
+    Numbers:                                function() { return "Nummers" },
     __filename: "../js/views/roomViews/RoomIconSelection.tsx",
   },
   RoomList:{

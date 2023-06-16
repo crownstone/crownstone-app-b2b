@@ -18,9 +18,9 @@ import {SettingsBackground} from "../components/SettingsBackground";
 import { SettingsScrollView } from "../components/SettingsScrollView";
 
 
-var miscellaneousList = [];
+var numbers = [];
 for (let i = 0; i < 256; i++) {
-  miscellaneousList.push("rn-" + i)
+  numbers.push("rn-" + i)
 };
 
 
@@ -251,7 +251,43 @@ let listOfIcons = {
     'c1-weight',
     'c1-projector',
   ],
-  miscellaneous: miscellaneousList,
+  miscellaneous: [
+    "fiHS-window",
+    "fiHS-window-2",
+    "fiHS-window-3",
+    "fiHS-window-4",
+    "fiHS-window-5",
+    "fiHS-window-7",
+    "fiHS-window-8",
+    "fiHS-window-9",
+    "fiCS1-bag",
+    'c1-iron1',
+    'c1-dude',
+    'c1-dudette',
+    'c1-wheel-chair',
+    'c1-wheelchair',
+    'c1-people',
+    'c1-pool',
+    'c1-leaf',
+    'c1-stars',
+    'c1-swimming',
+    'c1-chess-horse',
+    'c1-arrow-target',
+    'c1-meditation',
+    'c1-swimming-circle',
+    'c1-court',
+    'c1-cinema',
+    'c1-chatBubbles',
+    'c1-house',
+    'c1-alarmClock',
+    'c1-brain',
+    'c1-xmastree',
+    'c1-cat',
+    'c1-skull',
+    'c1-nuclear-circle',
+    'c1-fence'
+  ],
+  numbers: numbers,
   hallway: [
     "fiHS-door-2",
     "fiHS-door-3",
@@ -357,6 +393,7 @@ export class RoomIconSelection extends Component<{navigation:any, callback(icon:
       {key: 'music', label: lang("Music_Room")},
       {key: 'plants', label: lang("Nature___Outside")},
       {key: 'miscellaneous', label: lang("Miscellaneous")},
+      {key: 'numbers', label: lang("Numbers")}
     ];
 
     return (

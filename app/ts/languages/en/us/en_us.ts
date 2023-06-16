@@ -1935,6 +1935,7 @@ export default {
     Nature___Outside:                       function() { return "Nature / Outside" },
     Miscellaneous:                          function() { return "Miscellaneous" },
     Pick_an_Icon:                           function() { return "Pick an Icon" },
+    Numbers:                                function() { return "Numbers" }
   },
   RoomList:{
     __filename: "../js/views/components/RoomList.tsx",
