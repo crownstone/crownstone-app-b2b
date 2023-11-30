@@ -182,7 +182,7 @@ android {
             storePassword "$System.env.CS_ANDROID_STORE_PASSWORD"
             keyAlias "$System.env.CS_ANDROID_KEY_ALIAS"
             keyPassword "$System.env.CS_ANDROID_KEY_PASSWORD"
-            v2SigningEnabled false // See https://developer.android.com/about/versions/nougat/android-7.0.html#apk_signature_v2
+            v2SigningEnabled true // See https://developer.android.com/about/versions/nougat/android-7.0.html#apk_signature_v2
         }
         debug {
             storeFile file('debug.keystore')
