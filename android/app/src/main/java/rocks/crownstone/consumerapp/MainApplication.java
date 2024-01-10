@@ -1,6 +1,8 @@
 package rocks.crownstone.consumerapp;
 
 import android.content.Context;
+import android.content.IntentFilter;
+
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -54,6 +56,14 @@ public class MainApplication extends NavigationApplication {
 		Bugsnag.start(this);
 		SoLoader.init(this, /* native exopackage */ false);
 		initializeFlipper(this, getReactNativeHost().getReactInstanceManager()); // Remove this line if you don't want Flipper enabled
+
+		setServiceReceiver();
+	}
+
+	private void setServiceReceiver() {
+		ServiceReceiver receiver = new ServiceReceiver();
+		IntentFilter filter = new IntentFilter("CROWNSTONE_SERVICE_RESTART");
+		registerReceiver(receiver, filter);
 	}
 
 	/**
