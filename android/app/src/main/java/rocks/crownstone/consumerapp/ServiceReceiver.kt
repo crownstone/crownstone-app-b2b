@@ -15,8 +15,6 @@ import rocks.crownstone.bluenet.util.Log
 class ServiceReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        Log.d("dksdks", "onReceive")
-
         // The react code has to run on the main thread.
         val handler = Handler(Looper.getMainLooper())
         handler.post {
@@ -29,7 +27,6 @@ class ServiceReceiver : BroadcastReceiver() {
             if (reactContext != null) {
                 // Already exists, we can use the reactContext.
                 BluenetBridge(reactContext as ReactApplicationContext).initBluenet()
-                Log.d("dksdks", "reactContext != null")
             } else {
                 // Create react context and wait for result.
                 reactInstanceManager.addReactInstanceEventListener(object :
@@ -38,7 +35,6 @@ class ServiceReceiver : BroadcastReceiver() {
                         reactInstanceManager.removeReactInstanceEventListener(this)
                         // React context can now be used.
                         BluenetBridge(context as ReactApplicationContext).initBluenet()
-                        Log.d("dksdks", "onReactContextInitialized")
                     }
                 })
                 if (!reactInstanceManager.hasStartedCreatingInitialContext()) {

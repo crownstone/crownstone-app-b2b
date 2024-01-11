@@ -264,7 +264,6 @@ class BluenetBridge(reactContext: ReactApplicationContext): ReactContextBaseJava
 
 		reactContext.addLifecycleEventListener(lifecycleEventListener)
 
-		Log.d("dkdkdk", "bluenet.init")
 		initBluenetPromise = bluenet.init(reactContext, ONGOING_NOTIFICATION_ID, getServiceNotification("Crownstone is running", "Crownstone is running in the background"))
 		updateServiceNotification()
 		initLogger()
@@ -501,7 +500,6 @@ class BluenetBridge(reactContext: ReactApplicationContext): ReactContextBaseJava
 	fun setLocationState(sphereUid: Int, locationUid: Int, profile: Int, deviceToken: Int, sphereId: SphereId) {
 		// Current sphere short id, location short id, and profile.
 		// Cache these for each sphere, to be used for broadcasting.
-		Log.d("dkdkdk", "setLocationState ReactMethod")
 		Log.i(TAG, "setLocationState sphereUid=$sphereUid locationUid=$locationUid profile=$profile sphereId=$sphereId")
 		bluenet.setSphereShortId(sphereId, Conversion.toUint8(sphereUid))
 		bluenet.setLocation(sphereId, Conversion.toUint8(locationUid))
@@ -2932,14 +2930,12 @@ class BluenetBridge(reactContext: ReactApplicationContext): ReactContextBaseJava
 
 	@Synchronized
 	private fun onConnect(address: DeviceAddress) {
-		Log.d("dkdkdk", "onConnect : $address")
 		Log.i(TAG, "onConnect $address")
 		sendEvent("connectedToPeripheral", address)
 	}
 
 	@Synchronized
 	private fun onDisconnect(address: DeviceAddress) {
-		Log.d("dkdkdk", "onDisconnect : $address")
 		Log.i(TAG, "onDisconnect $address")
 		// This event is often triggered before the disconnect promise is (about 10 to 30 ms).
 		// The js side won't attempt a new connection to this address until it gets this event.
@@ -2990,7 +2986,6 @@ class BluenetBridge(reactContext: ReactApplicationContext): ReactContextBaseJava
 
 	@Synchronized
 	private fun onScanFailure(error: ScanStartFailure) {
-		Log.d("dkdkdk", "onScanFailure : $error")
 		Log.w(TAG, "onScanFailure $error")
 		val currentTimestampMs = SystemClock.elapsedRealtime()
 		if (currentTimestampMs - lastScanFailureAlertTimestampMs < SCAN_FAILURE_ALERT_MIN_INTERVAL_MS) {
@@ -3029,7 +3024,6 @@ class BluenetBridge(reactContext: ReactApplicationContext): ReactContextBaseJava
 
 	@Synchronized
 	private fun onRegionEnter(eventData: IbeaconRegionEventData) {
-		Log.d("dkdkdk", "onRegionEnter : $eventData")
 		val uuid = eventData.changedRegion
 		val referenceId = eventData.changedRegionReferenceId
 		Log.i(TAG, "enterSphere uuid=$uuid refId=$referenceId")
@@ -3043,7 +3037,6 @@ class BluenetBridge(reactContext: ReactApplicationContext): ReactContextBaseJava
 
 	@Synchronized
 	private fun onRegionExit(eventData: IbeaconRegionEventData) {
-		Log.d("dkdkdk", "onRegionExit : $eventData")
 		val uuid = eventData.changedRegion
 		val referenceId = eventData.changedRegionReferenceId
 		Log.i(TAG, "exitSphere uuid=$uuid refId=$referenceId")
@@ -3057,7 +3050,6 @@ class BluenetBridge(reactContext: ReactApplicationContext): ReactContextBaseJava
 
 	@Synchronized
 	private fun onIbeaconScan(scanList: ScannedIbeaconList) {
-//		Log.d("dkdkdk", "onIbeaconScan : $scanList")
 		if (appLogLevel == AppLogLevel.BASIC || appLogLevel == AppLogLevel.EXTENDED) {
 			Log.i("IbeaconScan", "onTimeout numBeacons=${scanList.size}")
 //			for (scan in scanList) {
@@ -3087,7 +3079,6 @@ class BluenetBridge(reactContext: ReactApplicationContext): ReactContextBaseJava
 
 	@Synchronized
 	private fun onNearestStone(data: Any?) {
-		Log.d("dkdkdk", "onNearestStone : $data")
 		// Any stone, validated or not, any operation mode.
 		val nearest = data as NearestDeviceListEntry
 		val nearestMap = exportNearest(nearest)
@@ -3097,7 +3088,6 @@ class BluenetBridge(reactContext: ReactApplicationContext): ReactContextBaseJava
 
 	@Synchronized
 	private fun onNearestSetup(data: Any?) {
-		Log.d("dkdkdk", "onNearestSetup : $data")
 		val nearest = data as NearestDeviceListEntry
 		val nearestMap = exportNearest(nearest)
 		sendEvent("nearestSetupCrownstone", nearestMap)
@@ -3503,7 +3493,6 @@ class BluenetBridge(reactContext: ReactApplicationContext): ReactContextBaseJava
 			return
 		}
 
-		Log.d("dkdkdk", "on updateServiceNotification() isInSphere: $isInSphere")
 
 		var title = "Localization running"
 		var text = when (isInSphere) {
